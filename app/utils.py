@@ -19,3 +19,18 @@ def get_base_url(port:int) -> str:
         print(f'Server is probably running in production, so a base url does not apply: \n{e}')
         base_url = '/'
     return base_url
+    
+#function to add correct and or comma
+def and_syntax(alist):
+    if len(alist) == 1:
+        alist = "".join(alist)
+        return alist
+    elif len(alist) == 2:
+        alist = " and ".join(alist)
+        return alist
+    elif len(alist) > 2:
+        alist[-1] = "and " + alist[-1]
+        alist = ", ".join(alist)
+        return alist
+    else:
+        return
