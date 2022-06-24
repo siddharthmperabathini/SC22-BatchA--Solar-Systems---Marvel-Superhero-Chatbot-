@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <script src="jquery-3.6.0.min.js"></script>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Spiderman Chatbot</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="static/styles.css" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Oswald&family=Shadows+Into+Light&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap" rel="stylesheet">
+        <style type="text/css">
+        	#bodybox {
+        		margin-top: 360px;
+            color: white;
+            width: 90%;
+        	}
+
+        	#chatbox {
+        		font: 17px 'Kdam Thmor Pro', sans-serif;
+        		width: 80%;
+        		height: 40px;
+        		border-radius: 25px;
+        		background-color: #DF1F2D ;
+            color: white;
+            padding: 16px 20px;
+            border: none;
+            opacity: 0.8;
+            position: fixed;
+            bottom: 23px;
+
+        	}
+          ::placeholder {
+            color: white;
+          }
+
+          a:hover, a:visited, a:link, a:active {
+            text-decoration: none;
+            color: inherit;
+          }
+
+          #result {
+            position: fixed;
+            top: 80px;
+            left: 280px;
+            width: 1000px;
+            color: white;
+            font-family: 'Kdam Thmor Pro', sans-serif;;
+            font-size: 1.5em;
+          }
+          
+          body {font-family: 'Kdam Thmor Pro', sans-serif; background-image: linear-gradient(to right, #DF1F2D ,#447BBE);}
+* {box-sizing: border-box;}
+
+          
+          h1 {
+            padding: 3px;
+          }
+/* Button used to open the chat form - fixed at the bottom of the page */
+.open-button {
+  background-color: #DF1F2D;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  position: fixed;
+  bottom: 23px;
+  right: 28px;
+  width: 280px;
+  border-radius: 25px;
+}
+
+/* The popup chat - hidden by default */
+.chat-popup {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  right: 15px;
+  bottom: 15px;
+/*   border: 3px solid #f1f1f1; */
+  z-index: 9;
+  border-radius: 30px;
+  
+  
+}
+
+/* Add styles to the form container */
+.form-container {
+  max-width: 1500px;
+  padding: 10px;
+  background-color: white;
+  border-radius: 30px;
+  
+}
+
+/* Full-width textarea */
+.form-container textarea {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+  resize: none;
+  min-height: 200px;
+}
+
+/* When the textarea gets focus, do something */
+.form-container textarea:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for the submit/send button */
+.form-container .btn {
+  background-color: #518af5;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+  border-radius: 10px;
+}
+
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+  background-color: red;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
+}
+          
+          #result {
+            position: fixed;
+            top: 80px;
+            left: 280px;
+            width: 1000px;
+            color: white;
+            font-family: 'Kdam Thmor Pro', sans-serif;
+          }
+          
+          
+          #logo {
+          width: 150px;
+          margin-left: 25px;
+          margin-right: auto;
+        }
+
+          
+          
+          
+          
+          
+      </style>
+    </head>
+    <body>
+        <div class="d-flex" id="wrapper">
+            <!-- Sidebar-->
+            <div class="border-end bg-white" id="sidebar-wrapper">
+              <div class="sidebar-heading border-bottom bg-light"><a href="{{ url_for('home') }}">
+                
+                <img id = "logo" src="{{ url_for('static', filename='images/MarvelSuperheroChatBotLogo.png')}}">
+                
+                </a></div>
+                <div class="list-group list-group-flush">
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{ url_for('ironman') }}" >Ironman</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{ url_for('spiderman') }}">Spiderman</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{ url_for('thor') }}">Thor</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{ url_for('groot') }}">Groot</a>
+                </div>
+            </div>
+            <!-- Page content wrapper-->
+            <div id="page-content-wrapper">
+                <!-- Top navigation-->
+                <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+                    <div class="container-fluid">
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
+                                <li class="nav-item active"><a class="nav-link" href="https://www.ai-camp.org/" target="_blank">AI Camp</a></li>
+                                <li class="nav-item active"><a class="nav-link" href="{{ url_for('product') }}" target="_blank">Product Specs</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{{ url_for('about') }}" target="_blank">About Us</a></li>
+                                <li class="nav-item dropdown">
+
+                                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+
+                                        <div class="dropdown-divider"></div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <!-- Page content-->
+                <div class="container-fluid">
+
+               <div>
+                  <div id='bodybox'>
+
+    						<p id="chatlog7" class="chatlog">&nbsp;</p>
+    						<p id="chatlog6" class="chatlog">&nbsp;</p>
+    						<p id="chatlog5" class="chatlog">&nbsp;</p>
+    						<p id="chatlog4" class="chatlog">&nbsp;</p>
+    						<p id="chatlog3" class="chatlog">&nbsp;</p>
+    						<p id="chatlog2" class="chatlog">&nbsp;</p>
+    						<p id="chatlog1" class="chatlog">&nbsp;</p>
+
+                <input type="text" name="chat" id="chatbox" placeholder="I can talk to you but you gotta help me with my homework" onfocus = "placeHolder()">
+
+                    </div>
+               </div>
+            	</div>
+                   <!-- Page content-->
+        </div>
+</body>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script url_for(“static”, filename=”scripts.js”></script>
+
+<script>    var messages = [], //array that hold the record of each string in chat
+      lastUserMessage = "", //keeps track of the most recent input string from the user
+      botMessage = "", //var keeps track of what the chatbot is going to say
+      botName = 'Spiderman', //name of the chatbot
+      talking = true; //when false the speach function doesn't work
+
+
+//edit this function to change what the chatbot says
+/*
+function chatbotResponse() {
+  botMessage="Hello" 
+  
+  talking = true;
+  // botMessage = "hi"; //the default message
+
+  // const url = 'https://cocalcg8.ai-camp.dev/19db8d7a-e8c9-4493-a2cd-7f84aaf76d95/port/54322/genironman/lastUserMessage=hey';
+
+  const url = 'https://cocalcg8.ai-camp.dev/19db8d7a-e8c9-4493-a2cd-7f84aaf76d95/port/54322/genironman/' + lastUserMessage;
+  // D
+  //var url = new URL('https://cocalcg8.ai-camp.dev/19db8d7a-e8c9-4493-a2cd-7f84aaf76d95/port/54322/genironman')
+
+  //url.search = new URLSearchParams(lastUserMessage).to
+  //ing();
+  //console.log(url)
+  
+  fetch(url)
+    .then(response => response.json())
+    .then(json => {
+        console.log("json printed")
+        console.log(json);
+        botMessage = JSON.stringify(json);
+        console.log(botMessage);
+    })
+    .catch(e => {
+        console.log(error)
+        console.log(e);
+    });
+  
+}
+*/
+async function chatbotResponse() {
+  console.log("MESSAGE DEFINED")
+  
+  talking = true;
+  // botMessage = "hi"; //the default message
+
+  // const url = 'https://cocalcg8.ai-camp.dev/19db8d7a-e8c9-4493-a2cd-7f84aaf76d95/port/54322/genironman/lastUserMessage=hey';
+
+  const url = 'https://cocalcg8.ai-camp.dev/19db8d7a-e8c9-4493-a2cd-7f84aaf76d95/port/12348/genspiderman/' + lastUserMessage;
+  // D
+  //var url = new URL('https://cocalcg8.ai-camp.dev/19db8d7a-e8c9-4493-a2cd-7f84aaf76d95/port/54322/genironman')
+
+  //url.search = new URLSearchParams(lastUserMessage).to
+  //ing();
+  //console.log(url)
+  console.log("BEFORE FETCH")
+  response = await fetch(url)
+  console.log("FETCHED")
+  text = response.text()
+  console.log(text)
+  return text
+  
+}
+
+//this runs each time enter is pressed.
+//It controls the overall input and output
+async function newEntry() {
+  console.log("NEW ENTRY STARTED")
+  //if the message from the user isn't empty then run 
+  console.log("BEFORE")
+  if (document.getElementById("chatbox").value != "") {
+    console.log("INSIDE")
+    //pulls the value from the chatbox ands sets it to lastUserMessage
+    lastUserMessage = document.getElementById("chatbox").value;
+
+    //sets the chat box to be clear
+    document.getElementById("chatbox").value = "";
+    console.log("CLEARED")
+
+    //adds the value of the chatbox to the array messages
+    await messages.push(lastUserMessage);
+    console.log("MESSAGE PUSHED")
+
+    //Speech(lastUserMessage);  //says what the user typed outloud
+    //sets the variable botMessage in response to lastUserMessage
+    console.log("BEFORE RESPONSE")
+    botmessage = await chatbotResponse();
+    console.log("AFTER RESPONSE")
+    console.log(botMessage)
+    //add the chatbot's name and message to the array messages
+    await messages.push("<b>" + botName + ":</b> " + botmessage);
+
+    // says the message using the text to speech function written below
+    // await Speech(botmessage);
+    for (var i = 1; i < 8; i++) {
+      if (messages[messages.length - i])
+        messages[messages.length - i].replace(/\u2019/g,"'");
+    }
+    //outputs the last few array elements of messages to html
+    for (var i = 1; i < 8; i++) {
+      if (messages[messages.length - i])
+        document.getElementById("chatlog" + i).innerHTML = messages[messages.length - i];
+    }
+  }
+}
+
+//text to Speech
+//https://developers.google.com/web/updates/2014/01/Web-apps-that-talk-Introduction-to-the-Speech-Synthesis-API
+function Speech(say) {
+  if ('speechSynthesis' in window && talking) {
+    var utterance = new SpeechSynthesisUtterance(say);
+    //msg.voice = voices[10]; // Note: some voices don't support altering params
+    //msg.voiceURI = 'native';
+    //utterance.volume = 1; // 0 to 1
+    //utterance.rate = 0.1; // 0.1 to 10
+    //utterance.pitch = 1; //0 to 2
+    //utterance.text = 'Hello World';
+    //utterance.lang = 'en-US';
+    speechSynthesis.speak(utterance);
+  }
+}
+
+//runs the keypress() function when a key is pressed
+document.onkeypress = keyPress;
+//if the key pressed is 'enter' runs the function newEntry()
+function keyPress(e) {
+  var x = e || window.event;
+  var key = (x.keyCode || x.which);
+  if (key == 13 || key == 3) {
+    //runs this function when enter is pressed
+    newEntry();
+  }
+  if (key == 38) {
+    console.log('hi')
+      //document.getElementById("chatbox").value = lastUserMessage;
+  }
+}
+
+//clears the placeholder text ion the chatbox
+//this function is set to run when the users brings focus to the chatbox, by clicking on it
+function placeHolder() {
+  document.getElementById("chatbox").placeholder = "";
+}
+
+</script>
+    <script type = "text/javascript" src = "chatbotSpider.js" ></script>
+
+</html>
