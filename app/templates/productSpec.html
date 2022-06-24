@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Product Specs</title>
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{{ url_for('static', filename='ProductSpecStyles.css') }}" rel="stylesheet" />
+
+      <style>
+        h2 {
+          text-align: center;
+        }
+        
+        body {
+          background-color: black;
+         
+        }
+        text {
+          
+          z-index: 1;
+        }
+        
+
+      </style>
+    </head>
+    <body id="page-top" background-color: black>
+
+        <!-- Masthead-->
+
+        <header class="masthead u-align-left u-container-style u-image u-layout-cell u-left-cell u-shading u-size-30 u-size-xs-60"style="background-image: url({{ url_for('static', filename= 'images/bg-masthead.jpg') }}); background-size: cover;" data-image-width="1280" data-image-height="913">
+
+            <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center" >
+                <div class="d-flex justify-content-center">
+                    <div class="text-center">
+     <!--           <h1 class="mx-auto my-0 text-uppercase text-white-50 mt-2 mb-5" id = "text">Marvel Chat-Bot</h1> -->
+                     <h3 class="text-white-50 mx-auto mt-2 mb-5"style="font-size:8vw">Marvel Chat-Bot</h3> 
+                        <h3 class="text-white-50 mx-auto mt-2 mb-5">An AI using Natural Language Processing (NLP) to convincingly simulate a Marvel character of your choosing to carry on conversation with.</h3>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- About-->
+        <section class="about-section text-center" id="about">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-lg-8">
+                        <h2 class="text-white mb-4">Creating the Chatbot</h2>
+                        <p class="text-white-50" >
+                            We created the chatbot using GPT2 and AiTextGen. These models helped us to generate text and train our model to emulate their respective personalities. Before we did this, we isolated and preprocessed each heroes dialogues from a subset of movies.
+                        </p>
+                    </div>
+                </div>
+                <img class="img-fluid" src="static/images/ironimg.jpg" alt="..." />
+            </div>
+        </section>
+        <!-- Projects-->
+        <section class="projects-section" id="projects">
+            <div class="container px-4 px-lg-5">
+              
+                <!-- Featured Project Row-->
+                <div class="row gx-0 mb-4 mb-lg-5 align-items-center">
+                    <div class="col-xl-8 col-lg-7">
+                      <img class="img-fluid" src="static/images/Spider-Man-Product-Spec.jpeg" alt="..." width = 700px height = 800px/>
+                  
+              </div>
+                  
+                    <div class="col-xl-4 col-lg-5">
+                        <div  class="featured-text text-center">
+                            <h4 class="text-white">Designing the Website</h4>
+                            <p class="mb-0 text-white-50" text-align:center >After fully training and developing our model, we used a combination of bootstrap templates as well as coding from scratch using HTML to create the very website you see!</p>
+                        </div>
+                    </div>
+                </div>
+              
+                <!-- Project One Row-->
+              <div class="row gx-0 mb-4 mb-lg-5 align-items-center">
+    <!--            <div class="row gx-0 mb-5 mb-lg-0 justify-content-center">
+-->
+                    <div class="col-lg-6">
+                      <img id = "logo" src="static/images/thorPNG.png "width = 700px height = 450px>
+                </div>
+                    <div class="col-lg-6">
+                        <div class="bg-black text-center h-100 project">
+                            <div class="d-flex h-100">
+                                <div class="project-text w-100 my-auto text-center text-lg-left">
+                                    <h4 class="text-white">Purpose</h4>
+                                    <p class="mb-0 text-white-50">We decided to create this chatbot for Marvel fans to simply have fun talking with an AI trained to talk like these characters.</p>
+                                    <hr class="d-none d-lg-block mb-0 ms-0" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              
+                <!-- Project Two Row-->
+                <div class="row gx-0 mb-4 mb-lg-5 align-items-center">
+                    <div class="col-lg-6">
+                      <img class="img-fluid" src="static/images/demo-image-02.jpg" alt="..." />
+                  </div>
+                    <div class="col-lg-6 order-lg-first">
+                        <div class="bg-black text-center h-100 project">
+                            <div class="d-flex h-100">
+                                <div class="project-text w-100 my-auto text-center text-lg-right">
+                                    <h4 class="text-white"><b>Challenges Faced</b></h4>
+                                    <ul class="text-white-50">
+                                      <li><b>Data Prep</b> - We had a limited data-set. We also had to manually collect all of the Thor data</li>
+                                      <br>
+                                      <li><b>Regex</b> - Our generated output was not in the correct format. Sentence cuttoffs and mispelled beginning words were things we had to work on heavily</li>
+                                       <br>
+                                      <li><b>Thor Tokenizer was DRUNK</b> - We spent a long time fixing an issue with the Thor Model connecting to Flask. The Thor model was mixed up with ironman model which caused his generated output to make no sense</li>
+                                       <br>
+                                      <li><b>Front End Design</b> - The chatbot feature was very difficult to make look good! Even though we started with a template, the majority of the website is from scratch, including the custom chatboxes for each caharcter. The colors and gradients were also a struggle</li>
+                                       <br>
+                                      <li><b>Back End Trouble</b> - Working with Flask in general was a pain. We spent a lot of time sorting through our many project files to make all of this work. The JavaScript was also a challenge to make correctly</li>
+                                       <br>
+                                      <li><b>Chat</b> - Shout out to the AI Camp Support team for helping us to build the chat history. We are working on getting the chat history to scroll to the top of the screen. We also are trying to add a picture of the hero in the corner of the chat and add chat bubbles to the website.</li>
+                                    </ul>
+                                    <hr class="d-none d-lg-block mb-0 me-0" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Signup-->
+ 
+    </body>
+</html>
