@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Meet the Team</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap" rel="stylesheet">
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<style>
+.user-pic {
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    border-radius: 100%;
+    margin: 20px auto 20px;
+    border-left: 3px solid #ddd;
+    border-right: 3px solid #ddd;
+    border-top: 3px solid #007bff;
+    border-bottom: 3px solid #007bff;
+    transform: rotate(-30deg);
+    transition: 0.5s;
+}
+.card-box:hover .user-pic {
+    transform: rotate(0deg);
+    transform: scale(1.1);
+}
+.card-box {
+    padding: 15px;
+    background-color: #fdfdfd;
+    margin: 20px 0px;
+    border-radius: 10px;
+    border: 1px solid #eee;
+    box-shadow: 0px 0px 8px 0px #d4d4d4;
+    transition: 0.5s;
+}
+.card-box:hover {
+	border: 1px solid white;
+	background-color: #ecd1f0;
+
+}
+.card-box p {
+    color: #808080;
+
+}
+
+h2 {
+	color: whitesmoke;
+	font-family: cursive;
+	font-size: 50pt !important;
+}
+
+body {
+	
+	background-image: linear-gradient(to right, #00ABE1 , #161F6D);
+}
+
+img {
+  -webkit-filter: grayscale(100%) !important; /* Safari 6.0 - 9.0 */
+  filter: grayscale(100%) !important;
+  width: 100%;
+  height:auto;
+} 
+
+  </style>
+  
+</head>
+  
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-6 offset-sm-3 mt-4 mb-4">
+				<h2 class="text-center" style="font-family: 'Kdam Thmor Pro', sans-serif";>Our Expert Team</h2>
+				<br>
+				<p class="text-center" style="font-family: 'Kdam Thmor Pro', sans-serif; color: white; font-size: 1.5em;" ></p>
+			
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-4">
+				<div class="card-box text-center">
+					<div class="user-pic">
+						<img src="{{ url_for('static', filename='images/vamsee.jpeg')}}" class="u-logo-image u-logo-image-1">
+					</div>
+            <h4>Vamsee Cheruvu</h4>
+             <h6>Project Manager | Full Stack</h6>
+             <hr>
+             <p>Hi! I'm Vamsee and I'm a rising Senior at Hilliard Darby High School, pursuing Computer Science in college. In my free time I enjoy running cross-country, making music, and hanging out with friends.  </p>
+					<hr>
+					
+				</div>
+			</div>
+
+			<div class="col-md-4">
+				<div class="card-box text-center">
+					<div class="user-pic">
+						<img src="{{ url_for('static', filename='images/ayush.jpeg')}}" class="u-logo-image u-logo-image-1">
+					</div>
+					<h4>Ayush Mishra</h4>
+					<h6>Front End | Model Training</h6>
+					<hr>
+					<p>Hi! I'm Ayush and I'm a rising senior at Ravenwood High School. In my free time, I like to play video games, practice the drums, and spend time with my friends and family.</p>
+					<hr>
+				</div>
+			</div>
+
+			<div class="col-md-4">
+				<div class="card-box text-center">
+					<div class="user-pic">
+						<img src="{{ url_for('static', filename='images/sid.png')}}" class="u-logo-image u-logo-image-1">
+
+					</div>
+					<h4>Siddharth Perabathini</h4>
+					<h6>Team-Leader | Full Stack</h6>
+					<hr>
+					<p>Hi, I'm Siddharth. I am an upcoming senior at Hilliard Darby High School and an athlete on the varsity tennis team. In my free time, I enjoy making Arduino projects and reading books. AI camp was a blast for me!</p>
+					<hr>
+					
+				</div>
+			</div>
+
+			<div class="col-md-4">
+				<div class="card-box text-center">
+					<div class="user-pic">
+						<img src="{{ url_for('static', filename='images/carson.jpeg')}}" class="u-logo-image u-logo-image-1">
+					</div>
+					<h4>Carson Wilbur</h4>
+					<h6>Front End | Data Collection | Model Training</h6>
+					<hr>
+					<p>Hey there! I'm Carson and I'm a rising junior at Palm Harbor University High School in Florida. In my free time I thoroughly enjoy things like archery, video games, and music.</p>
+					<hr>
+					
+				</div>
+			</div>
+
+			<div class="col-md-4">
+				<div class="card-box text-center">
+					<div class="user-pic">
+						<img src="{{ url_for('static', filename='images/ty.jpg')}}" class="u-logo-image u-logo-image-1">
+					</div>
+					<h4>Ty Lovgren</h4>
+					<h6>Data Prep &amp; Collection | Full Stack</h6>
+					<hr>
+					<p>Hey there! I'm Ty and I'm a rising Senior in Nebraska. For this project I worked as a Full Stack developer and did data collection &amp; preperation for the AI. In my free time I thoroughly enjoy things like reading, video games, and modding.</p>
+					<hr>
+					
+				</div>
+			</div>
+
+			<div class="col-md-4">
+				<div class="card-box text-center">
+					<div class="user-pic">
+						<img src="{{ url_for('static', filename='images/jasmine.jpg')}}" class="u-logo-image u-logo-image-1">
+					</div>
+					<h4>Jasmine Nguyen</h4>
+					<h6>Model Training | Front End </h6>
+					<hr>
+					<p>I'm Jasmine and I'm a rising Senior at Sprayberry High School in Georgia. I mainly worked on training models along with some front end. In my free-time I enjoy reading, playing games, and playing volleyball.</p>
+					<hr>
+					
+				</div>
+			</div>
+      
+      <div class="col-md-4">
+				<div class="card-box text-center">
+					<div class="user-pic">
+						<img src="{{ url_for('static', filename='images/liz.jpg')}}" class="u-logo-image u-logo-image-1">
+					</div>
+					<h4>Liz Wang</h4>
+					<h6>Mentor | Back End</h6>
+					<hr>
+					<p>Hey there, I'm Liz, a rising senior at the University of Southern California. Innovation, AI, and Art define my interests and pursuance. For this project, I taught and helped the team from various aspects. Seeing them progressed and helping them to tackle every challenge was truly amazing! </p>
+					<hr>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+
+
+
