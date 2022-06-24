@@ -1,1 +1,0 @@
-TODO: place your config.json, pytorch_model.bin, and aitextgen.tokenizer(if applicable) files in this folder and delete this TODO. 
