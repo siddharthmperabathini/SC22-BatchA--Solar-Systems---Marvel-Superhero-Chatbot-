@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Modern Business - Start Bootstrap Template</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+    </head>
+    <body class="d-flex flex-column h-100">
+        <main class="flex-shrink-0">
+            <!-- Navigation-->
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <div class="container px-5">
+                    <a class="navbar-brand" href="index.html">Video Game AI</a>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="pricing.html">Team 3 (DO NOT CROSS)</a></li>
+                            <li class="nav-item"><a class="nav-link" href="Game Recommender.html">Game Recommender</a></li>
+                            <li class="nav-item"><a class="nav-link" href="team2.html">Game Predictions</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!-- Header-->
+            <header class="bg-dark py-5">
+                <div class="container px-5">
+                    <div class="row gx-5 align-items-center justify-content-center">
+                        <div class="col-lg-8 col-xl-7 col-xxl-6">
+                            <div class="my-5 text-center text-xl-start">
+                                <h1 class="display-5 fw-bolder text-white mb-2">An AI that Predicts Video Game ESRB Ratings</h1>
+                                <p class="lead fw-normal text-white-50 mb-4">A machine learning model, created by Jonah Yang and Isabelle Hu. Given the year, genre, and platform of a game, it can predict the video game's ESRB rating.</p>
+                                <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
+                                    <a class="btn btn-outline-primary btn-lg px-4" href="#features">Get Started</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-5 col-xxl-6 d-none d-xl-block text-center"><img class="img-fluid rounded-3 my-5" src="./assets/fkf.jpeg" alt="..." width="600" height="400"/></div>
+                    </div>
+                </div>
+            </header>
+            <!-- Features section-->
+            <section class="py-2" id="features">
+                <div class="container px-5 my-5">
+                    <div class="row gx-5">
+                        <div class="col-lg-4 mb-lg-0"><h2 class="fw-bolder mb-1">Project Sections</h2></div>
+                        <div class="col-lg-8">
+                            <div class="row gx-5 row-cols-1 row-cols-md-2">
+                                <div class="col my-5 h-100">
+                                    <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-cart3"></i></div>
+                                    <h2 class="h5">Our Vision</h2>
+                                    <p class="mb-0">Our initial goal was to accurately predict the age range of a certain game, a certain time period, a certain genre, or of all three. However, due to a lack of solid data, we had to compromise. Now, we show the ESRB ratings for games and genres. </p>
+                                </div>
+                                <div class="col my-5 h-100">
+                                    <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-clipboard-data"></i></div>
+                                    <h2 class="h5">Cleaning and Processing Data</h2>
+                                    <p class="mb-0">The first thing when developing any machine learning is to get the data and clean it. To do this, we dropped the rows and columns that were useless and/or empty. Next, we converted Genre and Platform (which are our inputs) and ESRB Rating (which is our output) from strings into numbers. Then we balanced the dataset, then divided it into training and testing. After this process, we were ready to feed the data into our model.
+</p>
+                                </div>
+                                <div class="col my-5 h-100">
+                                    <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-code-square"></i></div>
+                                    <h2 class="h5">K-Nearest Neighbors</h2>
+                                    <p class="mb-0">Our machine learning model uses KNN, or K-Nearest Neighbors. This works by looking at a datapoint’s K nearest neighbors to define it. For example, if all the nearest neighbors of the datapoint are E-rated, the datapoint is very likely also to be E-rated. K can be set by the user, defaulting to 5. For our model, we used the value of 7.</p>
+                                </div>
+                                <div class="col my-5 h-100">
+                                    <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-palette"></i></div>
+                                    <h2 class="h5">Visualization</h2>
+                                    <p class="mb-0">We have three heatmaps as our visuals. Two of them were based on a confusion matrix, used to show how many times our model thought a certain thing (in this case, ESRB Ratings).</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+<!-- Our Goal -->
+            <div class="py-5 bg-primary">
+                <div class="container px-5 my-5">
+                    <div class="row gx-5 justify-content-center">
+                        <div class="col-lg-10 col-xl-7">
+                            <div class="text-center">
+                                <h2 class="fs-1 fw-bolder mb-3 text-custom-light">Our Goal</h2>
+                                <div class="fs-3 mb-4 fst-bold text-custom-light">Our goal is to accurately predict the (average) ESRB Rating of any given game accoring to the year it was released, what platform it was released on, and/or genre the game is.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+<!-- data stuff (maybe) -->
+          <section class="bg-light text-dark">
+            <div class="container pt-5">
+              <div class="text-center">
+                <h1 class="fw-bolder">Processing Data<br></h1>
+                <p class="fw-normal text-muted mb-0 fs-6">
+The first thing we did with the data was to clean it. We deleted all columns but the Name, ESRB Rating, Genre, Developer, Year, and Platform because many of the other columns were either empty or useless.
+<br>
+Next, we dropped the duplicates, the rows with N/A and NaN, and the ESRB ratings that are too infrequent to be used.
+<br>
+Then, we used custom hash functions to convert the ESRB Rating, Genre and Platform from strings to integers.
+<br>
+Finally, we balanced the dataset because some ESRB ratings were overrepresented. Then, we divided into training and testing.
+<br><br>
+                <img class="img-fluid rounded-3 mb-3" src="./assets/Screen Shot 2022-08-02 at 1.35.38 PM.png" alt="..." width="600" height="400"/>
+                <a class="p mb-0 text-decoration-none link-dark stretched-link" href="#!">A screenshot of our dataset. <br><br></a>
+                </p>
+              </div>
+            </div>
+          </section>
+<!-- visuals baby -->
+            <section class="py-5">
+                <div class="container px-5">
+                    <div class="text-center mb-5">
+                        <h1 class="fw-bolder">Our Work</h1>
+                        <p class="lead fw-normal text-muted mb-0">Assorted heatmaps</p>
+                    </div>
+                    <div class="row gx-5">
+                        <div class="col-lg-6">
+                            <div class="position-relative mb-5">
+                                <img class="img-fluid rounded-3 mb-3" src="./assets/blue heatmap.png" alt="..." />
+                                <a class="p mb-0 text-decoration-none link-dark stretched-link" href="#!">This is a heatmap to show correlation between the major factors of a video game (Platform, Year, Genre, ESRB Rating). We chose this visual because of our goal of taking success rate based on genre, age range, and year it was introduced to the public. </a>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="position-relative mb-5">
+                                <img class="img-fluid rounded-3 mb-3" src="./assets/heatmap .png" alt="..." width="600" height="400"/>
+                                <a class="p mb-0 text-decoration-none link-dark stretched-link" href="#!">This is a heatmap to show correlation between ratings (raw numbers). This heatmap was formed using a confusion matrix.We chose this visual because it shows our model's consistency with it's accuracy. For example, if you look up at the top left, we can see that our model correctly predicted the rating "E" 251 times.</a>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="position-relative mb-5">
+                                <img class="img-fluid rounded-3 mb-3" src="./assets/heatmap 1.png" alt="..." />
+                                <a class="p mb-0 text-decoration-none link-dark stretched-link" href="#!">This is a heatmap to show correlation between ratings, but instead of raw numbers, we used percentages. This heatmap was formed using a confusion matrix. If we take the same top left square, we can see that the 251 times it correctly predicted E translates to a prediction rate of 74%.</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+      </main>
+<!-- coolguy time -->
+        <!-- Footer-->
+        <footer class="bg-dark py-4 mt-auto">
+            <div class="container px-5">
+                <div class="row align-items-center justify-content-between flex-column flex-sm-row">
+                    <div class="col-auto"><div class="small m-0 text-white">Copyright &copy; Your Website 2022</div></div>
+                    <div class="col-auto">
+                        <a class="link-light small" href="#!">Privacy</a>
+                        <span class="text-white mx-1">&middot;</span>
+                        <a class="link-light small" href="#!">Terms</a>
+                        <span class="text-white mx-1">&middot;</span>
+                        <a class="link-light small" href="#!">Contact</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+    </body>
+</html>
+

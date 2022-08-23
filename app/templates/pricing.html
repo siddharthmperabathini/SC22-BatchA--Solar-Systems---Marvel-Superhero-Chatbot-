@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Data Enjoyers - Team 3</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='imgs/favicon.ico') }}" />
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{{ url_for('static', filename='scripts.js') }}" rel="stylesheet" />
+      <link href="{{ url_for('static', filename='styles.css') }}" rel="stylesheet" />
+    </head>
+    <body class="d-flex flex-column h-100">
+        <main class="flex-shrink-0">
+            <!-- Navigation-->
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <div class="container px-5">
+                    <a class="navbar-brand" href="{{ url_for('home') }}">Video Game AI</a>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                            <li class="nav-item"><a class="nav-link" href="{{ url_for('home') }}">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{ url_for('Game_Recommender') }}">Game Recommender</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{ url_for('Genre_Predictor') }}">Game Predictions</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{ url_for('KNN_Model') }}">ESRB Rating Predictions</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!-- Header-->
+            <header class="bg-dark py-5">
+                <div class="container px-5">
+                    <div class="row gx-5 align-items-center justify-content-center">
+                        <div class="col-lg-8 col-xl-7 col-xxl-6">
+                            <div class="my-5 text-center text-xl-start">
+                                <h1 class="display-5 fw-bolder text-white mb-2">An AI that Predicts Video Game ESRB Ratings</h1>
+                                <p class="lead fw-normal text-white-50 mb-4">A machine learning model, created by Jonah Yang and Isabelle Hu. Given the year, genre, and platform of a game, it can predict the video game's ESRB rating.</p>
+                                <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
+                                    <a class="btn btn-outline-primary btn-lg px-4" href="#features">Get Started</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-5 col-xxl-6 d-none d-xl-block text-center"><img class="img-fluid rounded-3 my-5" src="{{ url_for('static', filename='imgs/fkf.jpeg') }}" alt="..." width="600" height="400"/></div>
+                    </div>
+                </div>
+            </header>
+            <!-- Features section-->
+            <section class="py-2" id="features">
+                <div class="container px-5 my-5">
+                    <div class="row gx-5">
+                        <div class="col-lg-4 mb-lg-0"><h2 class="fw-bolder mb-1">Project Sections</h2></div>
+                        <div class="col-lg-8">
+                            <div class="row gx-5 row-cols-1 row-cols-md-2">
+                                <div class="col my-5 h-100">
+                                    <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-eye"></i></div>
+                                    <h2 class="h5">Our Vision</h2>
+                                    <p class="mb-0">Our initial goal was to accurately predict the age range of a certain game, a certain time period, a certain genre, or of all three.</p>
+                                </div>
+                                <div class="col my-5 h-100">
+                                    <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-clipboard-data"></i></div>
+                                    <h2 class="h5">Cleaning and Processing Data</h2>
+                                    <p class="mb-0">The first thing when developing any machine learning is to get the data and clean it.
+</p>
+                                </div>
+                                <div class="col my-5 h-100">
+                                    <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-code-square"></i></div>
+                                    <h2 class="h5">K-Nearest Neighbors</h2>
+                                    <p class="mb-0">Our machine learning model uses KNN, or K-Nearest Neighbors.</p>
+                                </div>
+                                <div class="col my-5 h-100">
+                                    <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-palette"></i></div>
+                                    <h2 class="h5">Visualization</h2>
+                                    <p class="mb-0">We have three heatmaps as our visuals. Two of them were based on a confusion matrix, used to show how many times our model thought a certain thing (in this case, ESRB Ratings).</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+<!-- Our Goal -->
+            <div class="py-5 bg-primary">
+                <div class="container px-5 my-5">
+                    <div class="row gx-5 justify-content-center">
+                        <div class="col-lg-10 col-xl-7">
+                            <div class="text-center">
+                                <h2 class="fs-1 fw-bolder mb-3 text-custom-light">Our Goal</h2>
+                                <div class="fs-3 mb-4 fst-bold text-custom-light">We created an AI that can predict the ESRB rating, or age range, of videogames given the genre, year, and platform. Age range predictions and popular genres can help developers create popular games, and market it to the correct people.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+<!-- data stuff (maybe) -->
+          <section class="bg-light text-dark">
+            <div class="container pt-5">
+              <div class="text-center">
+                <h1 class="fw-bolder mb-4">Processing Data<br></h1>
+                <p class="fw-normal text-muted mb-0 fs-5">
+The first thing we did with the data was to clean it. We deleted all columns but the Name, ESRB Rating, Genre, Developer, Year, and Platform because many of the other columns were either empty or useless.
+<br>
+Next, we dropped the duplicates, the rows with N/A and NaN, and the ESRB ratings that are too infrequent to be used.
+<br>
+Then, we used custom hash functions to convert the ESRB Rating, Genre and Platform from strings to integers.
+<br>
+Finally, we balanced the dataset because some ESRB ratings were overrepresented. Then, we divided into training and testing.
+                  <br><br></p>
+                <img class="img-fluid rounded-3 mb-3" src="{{ url_for('static', filename='imgs/Screen Shot 2022-08-02 at 1.35.38 PM.png') }}" alt="..." width="600" height="400"/>
+                <p class="p mb-0 text-decoration-none">A screenshot of our dataset. <br><br></p>
+                <br>
+                <h1 class="fw-bolder mb-4">K-Nearest Neighbors<br></h1>
+                <p class="fw-normal text-muted mb-0 fs-5">
+Our machine learning model uses KNN, or K-Nearest Neighbors. This works by looking at a datapoint’s K nearest neighbors to define it.
+<br>
+For example, if all the nearest neighbors of the datapoint are E-rated, the datapoint is very likely also to be E-rated. But if all the nearest neighbors of the datapoint are T-rated, it is likely to be T-rated.
+<br>
+K can be set by the user, defaulting to 5. For our model, we used the value of 7.
+<br>
+We also tried other models, such as a LARS Lasso model, and a Linear Regression model. However, KNN is the best-performing one by far.
+                  <br><br></p>
+                <img class="img-fluid rounded-3 mb-3" src="{{ url_for('static', filename='imgs/oooo.png') }}" alt="..." width="400" height="400"/>
+                <br><br>
+              </div>
+            </div>
+          </section>
+<!-- visuals baby -->
+            <section class="py-5">
+                <div class="container px-5">
+                    <div class="text-center mb-5">
+                        <h1 class="fw-bolder">Our Work</h1>
+                        <p class="lead fw-normal text-muted mb-0">Assorted heatmaps</p>
+                    </div>
+                    <div class="row gx-5">
+                        <div class="col-lg-6">
+                            <div class="position-relative mb-5">
+                                <img class="img-fluid rounded-3 mb-3" src="{{ url_for('static', filename='imgs/blue heatmap.png') }}" alt="..." />
+                                <p class="p mb-0 text-decoration-none link-dark">This is a heatmap to show correlation between the major factors of a video game (Platform, Year, Genre, ESRB Rating). We chose this visual because of our goal of taking success rate based on genre, age range, and year it was introduced to the public. </p>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="position-relative mb-5">
+                                <img class="img-fluid rounded-3 mb-3" src="{{ url_for('static', filename='imgs/heatmap .png') }}" alt="..." width="600" height="400"/>
+                                <p class="p mb-0 text-decoration-none link-dark stretched-link" href="#!">This is a heatmap to show correlation between ratings (raw numbers). This heatmap was formed using a confusion matrix. We chose this visual because it shows our model's consistency with it's accuracy. For example, if you look up at the top left, we can see that our model correctly predicted the rating "E" 251 times.</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="position-relative mb-5">
+                                <img class="img-fluid rounded-3 mb-3" src="{{ url_for('static', filename='imgs/heatmap 1.png') }}" alt="..." />
+                                <p class="p mb-0 text-decoration-none link-dark stretched-link" href="#!">This is a heatmap to show correlation between ratings, but instead of raw numbers, we used percentages. This heatmap was formed using a confusion matrix. If we take the same top left square, we can see that the 251 times it correctly predicted E translates to a prediction rate of 74%.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+          <div class="text-center">
+                <form method="POST">
+    <center>
+      <label for="Genre1">What Genre is the game? (any, Sports, Racing, Role-Playing, Platform, Puzzle, Misc, Party, Simulation, Action, Shooter, Action-Adventure, Fighting, Strategy, Adventure, Music, MMO, Sandbox, Board Game, Visual Novel, or Education):</label>
+    </center>
+
+<center><input type="text" id="Genre1" name="Genre1" required
+       minlength="0" maxlength="100" size="10"></center>
+
+<br>
+  <center><label for="Year1">What is the games year of release? (1997-2017)</label></center>
+
+
+
+<center><input type="text" id="Year1" name="Year1" required
+       minlength="0" maxlength="100" size="10"></center>
+
+  <br>
+
+    <center><label for="Platform1">What platform is he game on? (any, NES, SNES, GB, GBC, N64, DS, WII, 3DS, WIIU, NS, PS, PSP, PS2, PS3, PS4, XB, X360, XOne, PC,  IOS, GC, PSN, PSV, DC, SAT, GEN, VC, SCD, XBL, OSX, 3DO, Mob, DSIW, WW, VB, GG, NGage, Linux, And, WinP, AJ, Lynx, Arc, GIZ, Ouya, CDI):</label></center>
+
+<center><input type="text" id="Platform1" name="Platform1" required
+       minlength="0" maxlength="100" size="10"></center>
+  <br>
+    <center><input type="Submit"></center>
+  </form>
+            <br><br>
+            <h3>
+              Our AI predicts the games rating is {{  result  }}
+            </h3>
+              <br> <br> <br>
+          </div>
+      </main>
+        <!-- Footer-->
+        <footer class="bg-dark py-4 mt-auto">
+            <div class="container px-5">
+                <div class="row align-items-center justify-content-between flex-column flex-sm-row">
+                    <div class="col-auto"><div class="small m-0 text-white">Copyright &copy; Your Website 2022</div></div>
+                    <div class="col-auto">
+                        <a class="link-light small" href="#!">Privacy</a>
+                        <span class="text-white mx-1">&middot;</span>
+                        <a class="link-light small" href="#!">Terms</a>
+                        <span class="text-white mx-1">&middot;</span>
+                        <a class="link-light small" href="#!">Contact</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+    </body>
+</html>
+

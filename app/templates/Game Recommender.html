@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Data Enjoyers - Team 1</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='imgs/favicon.ico') }}" />
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{{ url_for('static', filename='scripts.js') }}" rel="stylesheet" />
+      <link href="{{ url_for('static', filename='styles.css') }}" rel="stylesheet" />
+    </head>
+    <body class="d-flex flex-column">
+        <main class="flex-shrink-0">
+            <!-- Navigation-->
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <div class="container px-5">
+                    <a class="navbar-brand" href="{{ url_for('home') }}">Video Game Recommender</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                            <li class="nav-item"><a class="nav-link" href="{{ url_for('home') }}">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{ url_for('Game_Recommender') }}">Game Recommender</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{ url_for('Genre_Predictor') }}">Game Predictions</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{ url_for('KNN_Model') }}">ESRB Rating Predictions</a></li>
+                            <li class="nav-item dropdown">
+
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+
+            <!-- Pricing section-->
+            <section class="py-5" style="background-image: url({{ url_for('static', filename='imgs/5923908.jpg') }});  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;">
+                <div class="container px-5 my-5">
+                    <div class="text-center mb-5">
+                        <h1 class="fw-bolder">Game Recommender</h1>
+                        <p class="lead fw-normal text-muted mb-0">Made by Reese and Blake</p>
+                    </div>
+</div>
+              <center style = "color:#DFDFDF", class="accordion-body"><big> Here we made a bot that creates graphs based on user inputs. It is a game recommender. You put in a genre, system, and an ESRB rating and out pops three visuals that sucgest games. You can choose what is the most important to you, how critics scored  games that fit your requirements, how users rated those games, and how many global Sales those games had. I made this because I have always wanted a game recommender that could help me discover new games. So i took initiative and propoosed the idea. We selected three ideas from our list and this was one of three that won. We took a data set and made it into something that we're proud of. Notice that there may be a different amount of games in the sections because data that is not available.</big>
+              </center>
+                </section>
+
+  <center class="accordion-body"><br> Below I put "Platform" in the Genre section, "any" in the platform section, which is where you select what console you are on. And in the ESRB rating input I put "E" for everybody. Below, 3 charts are made based on the inputs I put in.
+            </center>
+  <hr>
+            <p align="center"><iframe width="700" height="620" title="ExampleFig1" src="{{ url_for('static', filename='imgs/fig1.html') }}" alt="..."></iframe></p>
+<div>
+  <center class="accordion-body">Here in 'Critic Score' is a chart that shows the ratings from critics games that fit the inputs got. These ratings are quite low because critics were pretty harsh. Look at this graph when you test the AI later if you care about how Critics scored the game.</center>
+  <hr>
+<p align="center">
+  <iframe width="700" height="620" title="ExampleFig3" src="{{ url_for('static', filename='imgs/fig3.html') }}" alt="..."> </iframe>
+</p>
+<div> <center class="accordion-body">In 'User Score', are the ratings that games recived from users. These ratings are higher than the critic scores because it is people enjoying the game, not judjing it. Look at this graph when you test the AI later if you care about how Users scored the game.</center>
+<hr>
+  <p align="center">
+<iframe width="700" height="620" title="ExampleFig2" src="{{ url_for('static', filename='imgs/fig2.html') }}" alt="..."></iframe>
+  </p>
+
+<div> <center class="accordion-body">And lastly, the plot 'Global Sales' shows the sales that the games that fit the requirements sold. Look at this graph when you test the AI later if you care about how Global Sales a game has.</center><hr>
+<center><div>
+  Here is the moment you all have been waiting for, Below you may now test out the AI!.
+  </div></center><hr>
+
+  <form method="POST">
+    <center>
+      <label for="Genre">What Genre do you like? (any, Sports, Racing, Role-Playing, Platform, Puzzle, Misc, Party, Simulation, Action, Shooter, Action-Adventure, Fighting, Strategy, Adventure, Music, MMO, Sandbox, Board Game, Visual Novel, or Education):</label>
+    </center>
+
+<center><input type="text" id="Genre" name="Genre" required
+       minlength="0" maxlength="100" size="10"></center>
+
+<br>
+  <center><label for="System">What platform are you on? (any, NES, SNES, GB, GBC, N64, DS, WII, 3DS, WIIU, NS, PS, PSP, PS2, PS3, PS4, XB, X360, XOne, PC,  IOS, GC, PSN, PSV, DC, SAT, GEN, VC, SCD, XBL, OSX, 3DO, Mob, DSIW, WW, VB, GG, NGage, Linux, And, WinP, AJ, Lynx, Arc, GIZ, Ouya, CDI):</label></center>
+
+
+
+<center><input type="text" id="System" name="System" required
+       minlength="0" maxlength="100" size="10"></center>
+
+  <br>
+
+    <center><label for="Rating">What ESRB rating should it be? (E, E10, T, or M):</label></center>
+
+<center><input type="text" id="Rating" name="Rating" required
+       minlength="0" maxlength="100" size="10"></center>
+  <br>
+    <center><input type="Submit"></center>
+  </form>
+  <br><br>
+  <center>
+  <p align="center">
+    <iframe width="700" height="620" id="Critic" title="Critic" src="{{ url_for('render_fig') }}" alt="..."></iframe>
+    </p>
+    <br><br>
+    
+    <p align="center">
+    <iframe width="700" height="620" id="Critic" title="Critic" src="{{ url_for('render_fig3') }}" alt="..."></iframe>
+    </p>
+    
+    
+    <p align="center">
+    <iframe width="700" height="620" id="Critic" title="Critic" src="{{ url_for('render_fig2') }}" alt="..."></iframe>
+    </p>
+    
+  </center>
+  
+  </div>
+  </div>
+          </div>
+            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+
+          <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+
+          <script>
+            function reload() {
+                document.getElementById('Critic').src += '';
+
+            }
+            btn.onclick = reload;
+        </script>
+
+      </main>
+  </body>

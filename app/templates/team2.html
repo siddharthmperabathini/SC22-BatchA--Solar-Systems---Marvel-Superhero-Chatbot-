@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+      
+        <title>Data Enjoyers - Team 2</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='imgs/favicon.ico') }}" />
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{{ url_for('static', filename='scripts.js') }}" rel="stylesheet" />
+      <link href="{{ url_for('static', filename='styles.css') }}" rel="stylesheet" />
+    </head>
+    <body class="d-flex flex-column h-100">
+        <main class="flex-shrink-0">
+            <!-- Navigation-->
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <div class="container px-5">
+                    <a class="navbar-brand" href="{{ url_for('home') }}">Game Predictions</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                            <li class="nav-item"><a class="nav-link" href="{{ url_for('home') }}">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{ url_for('Game_Recommender') }}">Game Recommender</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{ url_for('Genre_Predictor') }}">Game Predictions</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{ url_for('KNN_Model') }}">ESRB Rating Predictions</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!-- Header-->
+            <header class="bg-dark py-5">
+                <div class="container px-5">
+                    <div class="row gx-5 align-items-center justify-content-center">
+                        <div class="col-lg-8 col-xl-7 col-xxl-6">
+                            <div class="my-5 text-center text-xl-start">
+                                <h1 class="display-5 fw-bolder text-white mb-2">Video Game Predictions</h1>
+                                <p class="lead fw-normal text-white-50 mb-4">AI Model to predict future video game data and sales based on a Video Games dataset and user inputs, made by Colin and Rishik.</p>
+                                <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
+                                    <a class="btn btn-primary btn-lg px-4 me-sm-3" href="#plotinputs">Try It Out</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-5 col-xxl-6 d-none d-xl-block text-center"><img class="img-fluid rounded-3 my-5" src="{{ url_for('static',filename='imgs/image-blog-what-code-quality.jpg') }}" alt="..." /></div>
+                    </div>
+                </div>
+            </header>
+            <!-- Features section 'static',filename='imgs/usergraph.html' -->
+            <section class="py-5" id="plot">
+            <center>
+              <iframe width="1000" height="600" title="Global Data" src="{{ url_for('static',filename='imgs/team2fig.html') }}"></iframe>
+              <section class="py-5" id="yourdata">
+              <iframe id="usergraph"width="1000" height="600" title="Your Data" src="{{ url_for('render_fig1')}}"></iframe>
+              </section>
+            </center>
+            <center>
+              
+            <section class="py-5" id="plotinputs">
+             <form method="POST">
+            <label for="Region">What region are you interested in? (NA_Sales, Global_Sales, PAL_Sales, JP_Sales, Other_Sales)</label>
+
+            <input type="text" id="Region" name="Region" required
+             fsminlength="4" maxlength="12" size="10">
+              
+              <br><br>
+              
+                          <label for="Year">What year of data do you want?</label>
+
+            <input type="text" id="Year" name="Year" required
+             fsminlength="4" maxlength="4" size="10">
+              
+                           <br><br>
+              
+<label for="Publisher">Choose a publisher:</label>
+
+<select name="Publisher" id="Publisher", name="Publisher">
+  <option value="Activision">Activision</option>
+  <option value="Bethesda Softworks">Bethesda Softworks</option>
+  <option value="EA Sports">EA Sports</option>
+  <option value="Electronic Arts">Electronic Arts</option>
+  <option value="Sony Computer Entertainment">Sony Computer Entertainment</option>
+  <option value="Warner Bros. Interactive Entertainment">Warner Bros. Interactive Entertainment</option>
+  <option value="Ubisoft">Ubisoft</option>
+  <option value="Warner Bros. Interactive">Warner Bros. Interactive</option>
+  <option value="2K Sports">2K Sports</option>
+  <option value="Microsoft Studios">Microsoft Studios</option>
+  <option value="Konami Digital Entertainment">Konami Digital Entertainment</option>
+  <option value="Square Enix">Square Enix</option>
+  <option value="Namco Bandai Games">Namco Bandai Games</option>
+  <option value="Take-Two Interactive">Take-Two Interactive</option>
+  <option value="2K Games">2K Games</option>
+  <option value="Bandai Namco Games">Bandai Namco Games</option>
+  <option value="Mojang">Mojang</option>
+  <option value="Disney Interactive Studios">Disney Interactive Studios</option>
+  <option value="Nintendo">Nintendo</option>
+  <option value="Harmonix Music Systems">Harmonix Music Systems</option>
+  <option value="Codemasters">Codemasters</option>
+  <option value="Tecmo Koei">Tecmo Koei</option>
+  <option value="Capcom">Capcom</option>
+  <option value="Blizzard Entertainment">Blizzard Entertainment</option>
+  <option value="Deep Silver">Deep Silver</option>
+  <option value="Focus Home Interactive">Focus Home Interactive</option>
+  <option value="Kalypso Media">Kalypso Media</option>
+  <option value="Atlus">Atlus</option>
+  <option value="Sega">Sega</option>
+  <option value="NIS America">NIS America</option>
+  <option value="Unknown">Unknown</option>
+  <option value="505 Games">505 Games</option>
+  <option value="Xseed Games">Xseed Games</option>
+  <option value="Milestone S.r.l.">Milestone S.r.l.</option>
+  <option value="Nordic Games">Nordic Games</option>
+  <option value="Rebellion Developments">Rebellion Developments</option>
+  <option value="Marvelous Entertainment">Marvelous Entertainment</option>
+  <option value="Telltale Games">Telltale Games</option>
+  <option value="Aksys Games">Aksys Games</option>
+  <option value="Idea Factory">Idea Factory</option>
+  <option value="Little Orbit">Little Orbit</option>
+  <option value="Maximum Games">Maximum Games</option>
+  <option value="Idea Factory International">Idea Factory International</option>
+  <option value="Tru Blu Entertainment">Tru Blu Entertainment</option>
+  <option value="Psyonix Studios">Psyonix Studios</option>
+  <option value="Bigben Interactive">Bigben Interactive</option>
+  <option value="5pb">5pb</option>
+  <option value="Ravenscourt">Ravenscourt</option>
+  <option value="Arc System Works">Arc System Works</option>
+  <option value="GameMill Entertainment">GameMill Entertainment</option>
+  <option value="Eidos Interactive Ltd">Eidos Interactive Ltd</option>
+  <option value="Thomas Happ Games">Thomas Happ Games</option>
+</select>
+               <br><br>
+               <input type="submit">
+              </form>
+              </section>
+            </center>
+             
+
+              <div>
+                <center>
+                <h5 class="accordion-body"
+>
+                  This is why we made this chart
+                  </h5>
+                  <p class="accordion-body text-muted me-auto ms-auto fw-bolder">We made this chart for users to better understand the data. The chart shows the genre, the sales of the region you chose, the year when it came out, and the publisher of the game. You can also filter through the genres in the chart very easily using the side genre section and selecting or un-selecting them. You can also use multiple tools to help you get around the chart and view it better by using the tools in the top right of the chart. If we didn't have this chart, the data would be very confusing and wouldn't be so simple to sort, find, and filter. The chart allows us to style our data to make it look better and more easy to the eyes when trying to find specifics in the data.</p>
+                </center>
+              </div>
+            </section>
+
+          <hr>
+
+            <section class="py-5" id="features">
+                <div class="container px-5 my-5">
+                    <div class="row gx-5">
+                        <div class="col-lg-4 mb-5 mb-lg-0"><h2 class="fw-bolder mb-0">Predicting the future of video games.</h2></div>
+                        <div class="col-lg-8">
+                            <div class="row gx-5 row-cols-1 row-cols-md-2">
+                                <div class="col mb-5 h-100">
+                                    <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-patch-question-fill"></i></div>
+                                    <h2 class="h5">Why</h2>
+                                    <p class="mb-0">It would be helpful to game developers to see what games and genres did well in a specific year to improve their game sales and players.</p>
+                                </div>
+                                <div class="col mb-5 h-100">
+                                    <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-list-ol"></i></div>
+                                    <h2 class="h5">How</h2>
+                                    <p class="mb-0">We would allow users to input things such as year, genre, and developer and return a plot with that data from our dataset of games.</p>
+                                </div>
+                                <div class="col mb-5 h-100">
+                                    <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-bar-chart-fill"></i></div>
+                                    <h2 class="h5">Dataset</h2>
+                                    <p class="mb-0">We used a video game data set from a website called kaggle, we imported the dataset into our model to use on our AI.</p>
+                                </div>
+                                <div class="col mb-5 h-100">
+                                    <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-stars"></i></div>
+                                    <h2 class="h5">Cleaning</h2>
+                                    <p class="mb-0">We used code to clean our dataset and remove N/A values and values that didn't make sense for our AI model.</p>
+                                </div>
+                                <div class="col mb-5 mb-md-0 h-100">
+                                    <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-pie-chart-fill"></i></div>
+                                    <h2 class="h5">Chart</h2>
+                                    <p class="mb-0">We used a Python package called Plotly to graph our predictions that our AI makes from the cleaned Dataset.
+                                  </p>
+                                </div>
+                                <div class="col h-100">
+                                    <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-input-cursor-text"></i></div>
+                                    <h2 class="h5">User Inputs</h2>
+                                    <p class="mb-0">Using inputs given by the user, we were able to filter out the year, publisher, and genre they want our AI to predict.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+          <hr>
+            <!-- Blog preview section-->
+            <section class="py-5">
+                <div class="container px-5 my-5">
+                    <div class="row gx-5 justify-content-center">
+                        <div class="col-lg-8 col-xl-6">
+                            <div class="text-center">
+                                <h2 class="fw-bolder">Our AI Model</h2>
+                                <p class="lead fw-normal text-muted mb-5">Images of our code that we used for our dataset AI model and the process of how we did it.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row gx-5">
+                        <div class="col-lg-4 mb-5">
+                            <div class="card h-100 shadow border-0">
+                                <img class="card-img-top" src="{{ url_for('static',filename='imgs/Screenshot_107.png') }}" alt="..." />
+                                <div class="card-body p-4">
+                                    <div class="badge bg-primary bg-gradient rounded-pill mb-2">Dataset Importing</div>
+                                    <a class="text-decoration-none link-dark stretched-link" href="#!"><h5 class="card-title mb-3">Importing Our Dataset</h5></a>
+                                    <p class="card-text mb-0">We first imported pandas and Plotly so that we could use our coding language, and imported Plotly to plot our data later on.</p>
+                                </div>
+                                <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
+                                    <div class="d-flex align-items-end justify-content-between">
+                                        <div class="d-flex align-items-center">
+                                            <img class="rounded-circle me-3" src="{{ url_for('static',filename='imgs/Screenshot_111_40x40.png') }}" height=10% width=10% alt="..." />
+                                            <div class="small">
+                                                <div class="fw-bold">Colin</div>
+                                                <div class="text-muted">August 1, 2022 &middot; 1 min read</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 mb-5">
+                            <div class="card h-100 shadow border-0">
+                                <img class="card-img-top" src="{{ url_for('static',filename='imgs/Screenshot_108.png') }}" alt="..." />
+                                <div class="card-body p-4">
+                                    <div class="badge bg-primary bg-gradient rounded-pill mb-2">Cleaning Data</div>
+                                    <a class="text-decoration-none link-dark stretched-link" href="#!"><h5 class="card-title mb-3">Cleaning Our Data</h5></a>
+                                    <p class="card-text mb-0">To clean our data we first used data.drop to specify which columns of data we want to drop, and then used the code below to drop NAN values. We used t2data.head to check that those columns were dropped before continuing.</p>
+                                </div>
+                                <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
+                                    <div class="d-flex align-items-end justify-content-between">
+                                        <div class="d-flex align-items-center">
+                                            <img class="rounded-circle me-3" src="{{ url_for('static',filename='imgs/Screenshot_111_40x40.png') }}" height=10% width=10% alt="..." />
+                                            <div class="small">
+                                                <div class="fw-bold">Colin</div>
+                                                <div class="text-muted">August 1, 2022 &middot; 2 min read</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 mb-5">
+                            <div class="card h-100 shadow border-0">
+                                <img class="card-img-top" src="{{ url_for('static',filename='imgs/Screenshot_109.png') }}" alt="..." />
+                                <div class="card-body p-4">
+                                    <div class="badge bg-primary bg-gradient rounded-pill mb-2">User Inputs & Charts</div>
+                                    <a class="text-decoration-none link-dark stretched-link" href="#!"><h5 class="card-title mb-3">Adding User Inputs & Returning Charts</h5></a>
+                                    <p class="card-text mb-0">We first added input variables to ask the user questions, their answers were put into a variable and fed into the plot. The plot was then returned to the user with all of the data requested, in an easy to understand plot.</p>
+                                </div>
+                                <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
+                                    <div class="d-flex align-items-end justify-content-between">
+                                        <div class="d-flex align-items-center">
+                                            <img class="rounded-circle me-3" src="{{ url_for('static',filename='imgs/Screenshot_111_40x40.png') }}" height=10% width=10% alt="..." />
+                                            <div class="small">
+                                                <div class="fw-bold">Colin</div>
+                                                <div class="text-muted">August 1, 2022 &middot; 2 min read</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Call to action-->
+                </div>
+              
+
+            </section>
+        </main>
+        <!-- Footer-->
+        <footer class="bg-dark py-4 mt-auto">
+            <div class="container px-5">
+                <div class="row align-items-center justify-content-between flex-column flex-sm-row">
+                    <div class="col-auto"><div class="small m-0 text-white">Copyright &copy; Video Game Predictions AI</div></div>
+                    <div class="col-auto">
+                        <a class="link-light small" href="#!">Privacy</a>
+                        <span class="text-white mx-1">&middot;</span>
+                        <a class="link-light small" href="#!">Terms</a>
+                        <span class="text-white mx-1">&middot;</span>
+                        <a class="link-light small" href="#!">Contact</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+      
+      <script>
+            function reload() {
+                document.getElementById('usergraph').src += '';
+            }
+            btn.onclick = reload;
+        </script>
+      
+    </body>
+</html>
